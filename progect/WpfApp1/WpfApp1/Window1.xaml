@@ -1,0 +1,25 @@
+﻿<Window x:Class="WpfApp1.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="Window1" Height="450" Width="800">
+    <Grid>
+        
+        <Button Content="Добавить" HorizontalAlignment="Left" Margin="83,15,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.436,-0.578" Width="95"/>
+        <Button Content="Удалить" Margin="352,15,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="96"/>
+        <Button Content="Редактировать" Margin="621,15,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="95"/>
+        <DataGrid Margin="0,40,0,0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Артикул"      Width="*"  />
+                <DataGridTextColumn Header="Наименование" Width="*"  />
+                <DataGridTextColumn Header="Стоимость"    Width="*"  />
+                <DataGridTextColumn Header="Количество"   Width="*"  />
+                <DataGridTextColumn Header="Описание"     Width="*"  />
+                
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище qweqweqweModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Заказ">
+    <Key>
+      <PropertyRef Name="id_заказа" />
+    </Key>
+    <Property Name="id_заказа" Type="bigint" Nullable="false" />
+    <Property Name="номер_зака" Type="int" />
+    <Property Name="Дата_заказа" Type="date" />
+    <Property Name="Дата_доставки" Type="date" />
+    <Property Name="Пункт_выдачи" Type="int" />
+    <Property Name="ФИО_клиента" Type="nvarchar" MaxLength="100" />
+    <Property Name="Код_для_получения" Type="int" />
+    <Property Name="Статус_заказа" Type="nchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Пользователи">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="float" Nullable="false" />
+    <Property Name="ФИО" Type="nvarchar" MaxLength="255" />
+    <Property Name="Логин" Type="nvarchar" MaxLength="255" />
+    <Property Name="Пароль" Type="nvarchar" MaxLength="255" />
+    <Property Name="id_роль" Type="float" />
+  </EntityType>
+  <EntityType Name="Пункт_выдачи">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="float" Nullable="false" />
+    <Property Name="пункт_выдачи" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Роли">
+    <Key>
+      <PropertyRef Name="id_роли" />
+    </Key>
+    <Property Name="id_роли" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="роль" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="состав_заказа$">
+    <Key>
+      <PropertyRef Name="id_состава" />
+    </Key>
+    <Property Name="id_состава" Type="int" Nullable="false" />
+    <Property Name="id_заказа" Type="int" />
+    <Property Name="id_товара" Type="nvarchar" MaxLength="255" />
+    <Property Name="количество_заказа" Type="int" />
+  </EntityType>
+  <EntityType Name="товары$">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" Nullable="false" />
+    <Property Name="Артикул" Type="nvarchar" MaxLength="255" />
+    <Property Name="Наименование" Type="nvarchar" MaxLength="255" />
+    <Property Name="Единица_измерения" Type="nvarchar" MaxLength="255" />
+    <Property Name="Стоимость" Type="money" />
+    <Property Name="Размер_максимально_возможной_скидки" Type="int" />
+    <Property Name="Производитель" Type="nvarchar" MaxLength="255" />
+    <Property Name="Поставщик" Type="nvarchar" MaxLength="255" />
+    <Property Name="Категория_товара" Type="nvarchar" MaxLength="255" />
+    <Property Name="Действующая_скидка" Type="int" />
+    <Property Name="Количество_на_складе" Type="int" />
+    <Property Name="Описание" Type="nvarchar" MaxLength="255" />
+    <Property Name="Изображение" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityContainer Name="Хранилище qweqweqweModelContainer">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Заказ" EntityType="Self.Заказ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Пользователи" EntityType="Self.Пользователи" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Пункт_выдачи" EntityType="Self.Пункт_выдачи" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Роли" EntityType="Self.Роли" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="состав_заказа$" EntityType="Self.состав_заказа$" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="товары$" EntityType="Self.товары$" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="qweqweqweModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Заказ">
+    <Key>
+      <PropertyRef Name="id_заказа" />
+    </Key>
+    <Property Name="id_заказа" Type="Int64" Nullable="false" />
+    <Property Name="номер_зака" Type="Int32" />
+    <Property Name="Дата_заказа" Type="DateTime" Precision="0" />
+    <Property Name="Дата_доставки" Type="DateTime" Precision="0" />
+    <Property Name="Пункт_выдачи" Type="Int32" />
+    <Property Name="ФИО_клиента" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Код_для_получения" Type="Int32" />
+    <Property Name="Статус_заказа" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Пользователи">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Double" Nullable="false" />
+    <Property Name="ФИО" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Логин" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Пароль" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="id_роль" Type="Double" />
+  </EntityType>
+  <EntityType Name="Пункт_выдачи">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Double" Nullable="false" />
+    <Property Name="пункт_выдачи1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Роли">
+    <Key>
+      <PropertyRef Name="id_роли" />
+    </Key>
+    <Property Name="id_роли" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="роль" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="состав_заказа_">
+    <Key>
+      <PropertyRef Name="id_состава" />
+    </Key>
+    <Property Name="id_состава" Type="Int32" Nullable="false" />
+    <Property Name="id_заказа" Type="Int32" />
+    <Property Name="id_товара" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="количество_заказа" Type="Int32" />
+  </EntityType>
+  <EntityType Name="товары_">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" />
+    <Property Name="Артикул" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Наименование" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Единица_измерения" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Стоимость" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Размер_максимально_возможной_скидки" Type="Int32" />
+    <Property Name="Производитель" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Поставщик" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Категория_товара" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Действующая_скидка" Type="Int32" />
+    <Property Name="Количество_на_складе" Type="Int32" />
+    <Property Name="Описание" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Изображение" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="qweqweqweEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Заказ" EntityType="Self.Заказ" />
+    <EntitySet Name="Пользователи" EntityType="Self.Пользователи" />
+    <EntitySet Name="Пункт_выдачи" EntityType="Self.Пункт_выдачи" />
+    <EntitySet Name="Роли" EntityType="Self.Роли" />
+    <EntitySet Name="состав_заказа_" EntityType="Self.состав_заказа_" />
+    <EntitySet Name="товары_" EntityType="Self.товары_" />
+  </EntityContainer>
+</Schema>
